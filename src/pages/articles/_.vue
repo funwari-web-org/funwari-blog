@@ -25,11 +25,11 @@ export default defineComponent({
       ],
     }
   },
-  async asyncData({ $content, route, error, isDev }) {
+  async asyncData({ $content, route, error }) {
     const { path } = route
     const [document] = await $content({ deep: true }).where({ path }).fetch() as FetchReturn[]
 
-    if (!document || !isDev && document.draft) {
+    if (!document) {
       error({
         statusCode: 404,
         message: '記事が見つかりません',

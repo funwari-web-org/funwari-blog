@@ -1,3 +1,4 @@
+import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { NuxtConfig } from '@nuxt/types'
 
 const config: NuxtConfig = {
@@ -5,8 +6,12 @@ const config: NuxtConfig = {
   ssr: true,
   srcDir: 'src',
   generate: {
-    fallback: '404.html',
-    routes: ['/'],
+    fallback: true,
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content({ deep: true }).only(['path']).fetch()
+      return files.map((file: FetchReturn) => file.path)
+    },
   },
   head: {
     title: 'funrawi-blog',
@@ -25,7 +30,7 @@ const config: NuxtConfig = {
       {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com',
-        crossorigin: 'crossorigin',
+        crossorigin: '',
       },
       {
         rel: 'stylesheet',

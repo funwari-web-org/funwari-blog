@@ -1,7 +1,6 @@
 ---
 title: Visual Studio Code の導入方法
 description: ウェブ業界で働くエンジニアから多くの支持を集めるテキストエディタ Visual Studio Code(VS Code) の導入方法を解説します！
-draft: true
 publishedAt: 2021-12-24T12:00:00+09:00
 category: YouTube動画
 tag:
