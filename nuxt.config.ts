@@ -58,6 +58,7 @@ const config: NuxtConfig = {
     },
   },
   storybook: {},
+  postcss: {},
   build: {},
   toast: {
     position: 'bottom-right',
