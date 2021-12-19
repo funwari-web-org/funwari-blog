@@ -1,0 +1,68 @@
+import { NuxtConfig } from '@nuxt/types'
+
+const config: NuxtConfig = {
+  target: 'static',
+  srcDir: 'src',
+  head: {
+    title: 'funrawi-blog',
+    htmlAttrs: {
+      lang: 'ja',
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' },
+    ],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'crossorigin',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono&display=swap',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
+      },
+    ],
+  },
+  css: ['~/assets/style/app.scss'],
+  plugins: ['~/plugins/vue-scrollactive', '~/plugins/dayjs'],
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/composition-api/module'],
+  modules: ['@nuxt/content', 'nuxt-fontawesome', '@nuxtjs/toast'],
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas'],
+      },
+    ],
+  },
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-one-dark.css',
+      },
+    },
+  },
+  storybook: {},
+  build: {},
+  toast: {
+    position: 'bottom-right',
+    duration: 2000,
+  },
+}
+
+export default config

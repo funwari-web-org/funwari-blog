@@ -1,0 +1,24 @@
+@use '../global';
+
+$link-color: global.$blue;
+
+.link {
+  color: $link-color;
+  font-weight: global.$weight-bold;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &[target=_blank] {
+    &::after {
+      content: 'link';
+      margin-left: 0.25em;
+      @include global.material-icon;
+      font-size: global.$size-6 * 1.2;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+  }
+}

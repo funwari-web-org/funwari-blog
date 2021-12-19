@@ -1,0 +1,21 @@
+@use '../global';
+
+html {
+  font-family: global.$font-family;
+  font-size: global.$size-root;
+  line-height: global.$line-height;
+}
+
+body {
+  font-size: global.$size-6;
+}
+
+html, body, #__nuxt, #__layout {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

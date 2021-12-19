@@ -1,0 +1,139 @@
+@use '../global';
+@use 'prismjs/plugins/line-numbers/prism-line-numbers';
+@use 'prismjs/plugins/line-highlight/prism-line-highlight';
+$content-heading-color: global.$text-strong;
+$content-heading-weight: global.$weight-bold;
+$content-heading-line-height: 1.25;
+
+.nuxt-content {
+  li + li {
+    margin-top: 0.25em;
+  }
+
+  p, dl, ol, ul, blockquote, pre, table, &-highlight {
+    &:not(:last-child) {
+      margin-top: 1em;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @include global.leading-trim($content-heading-line-height);
+    color: $content-heading-color;
+    font-weight: $content-heading-weight;
+    line-height: $content-heading-line-height;
+
+    a {
+      margin-right: 0.5em;
+      color: global.$text-main;
+
+      &::before {
+        content: '#';
+      }
+    }
+  }
+
+  h1 {
+    font-size: global.$size-5;
+    margin-bottom: 0.5em;
+
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+
+  h2 {
+    font-size: global.$size-4;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.8em;
+    border-bottom: 1px solid global.$border;
+
+    &:not(:first-child) {
+      margin-top: 2em;
+    }
+  }
+
+  h3 {
+    font-size: global.$size-5;
+    margin-bottom: 0.5em;
+
+    &:not(:first-child) {
+      margin-top: 1.25em;
+    }
+  }
+
+  h4 {
+    font-size: global.$size-5;
+    margin-bottom: 0.8em;
+  }
+
+  h5 {
+    font-size: global.$size-6;
+    margin-bottom: 0.8888em;
+  }
+
+  h6 {
+    font-size: global.$size-6;
+    margin-bottom: 1em;
+  }
+
+  ol {
+    margin-left: 2em;
+    list-style-position: outside;
+    list-style-type: decimal;
+  }
+}
+
+.nuxt-content-highlight {
+  position: relative;
+  font-size: global.$size-7;
+
+  .filename {
+    @include global.leading-trim;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    color: global.$text-invert;
+    font-size: global.$size-small;
+    background: rgba(global.$text, 0.6);
+    border-radius: 0 8px 0 4px;
+    z-index: 1;
+    transition: opacity 300ms;
+  }
+
+  code {
+    font-family: global.$font-family-code;
+    font-size: global.$size-7;
+  }
+
+  pre[class*="language-"] {
+    margin: 0;
+    border-radius: 8px;
+    font-size: global.$size-7;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
+
+  .copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 300ms, visibility 0s 300ms;
+  }
+
+  @include global.hover {
+    .filename {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 300ms, visibility 0s 300ms;
+    }
+
+    .copy {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 300ms;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use '../global';
+
+$title-size: global.$size-3;
+
+.title,
+.subtitle {
+  @include global.leading-trim;
+}
+
+.title {
+  font-size: $title-size;
+  font-weight: global.$weight-bold;
+
+  @each $size in global.$sizes {
+    $index: index(global.$sizes, $size);
+
+    &--size-#{$index} {
+      font-size: $size;
+    }
+  }
+}
+
+.subtitle {
+  font-size: $title-size;
+
+  @each $size in global.$sizes {
+    $index: index(global.$sizes, $size);
+
+    &--size-#{$index} {
+      font-size: $size;
+    }
+  }
+}

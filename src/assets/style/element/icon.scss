@@ -1,0 +1,5 @@
+@use '../global';
+
+.icon {
+  @include global.material-icon;
+}
