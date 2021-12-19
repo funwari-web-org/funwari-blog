@@ -2,7 +2,12 @@ import { NuxtConfig } from '@nuxt/types'
 
 const config: NuxtConfig = {
   target: 'static',
+  ssr: true,
   srcDir: 'src',
+  generate: {
+    fallback: '404.html',
+    routes: ['/'],
+  },
   head: {
     title: 'funrawi-blog',
     htmlAttrs: {
