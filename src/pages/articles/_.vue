@@ -1,12 +1,9 @@
 <template>
-  <div class="doc">
-    <div class="doc__content">
-      <AppDocArticle class="doc__article" :document="document" />
-    </div>
-    <aside class="doc__side">
-      <AppDocToc class="doc__toc" :toc="document.toc" />
-    </aside>
-  </div>
+  <ArticleContentPageView
+    :document="document"
+    :prevDocument="prevDocument"
+    :nextDocument="nextDocument"
+  />
 </template>
 
 <script lang="ts">
@@ -37,31 +34,17 @@ export default defineComponent({
       return
     }
 
+    const [prevDocument, nextDocument] = await $content('articles')
+      .only(['title', 'publishedAt', 'thumbnail', 'path'])
+      .sortBy('publishedAt', 'desc')
+      .surround(document.slug)
+      .fetch() as FetchReturn[]
+
     return {
       document,
+      prevDocument,
+      nextDocument,
     }
   },
 })
 </script>
-
-<style lang="scss" scoped>
-@use '~/assets/style/global';
-
-.doc {
-  display: flex;
-
-  &__content {
-    width: 70%;
-  }
-
-  &__side {
-    width: 30%;
-    padding-left: 30px;
-  }
-
-  &__toc {
-    position: sticky;
-    top: 100px;
-  }
-}
-</style>
