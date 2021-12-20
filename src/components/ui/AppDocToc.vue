@@ -76,11 +76,11 @@ export default defineComponent({
     border-radius: 0.5em;
 
     &--active {
-      color: global.$text-main;
+      color: global.$text-link;
     }
 
     @include global.hover {
-      background: rgba(global.$text-main, 0.15);
+      background: rgba(global.$text-link, 0.15);
     }
   }
 }

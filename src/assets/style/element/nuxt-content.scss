@@ -24,7 +24,7 @@ $content-heading-line-height: 1.25;
 
     a {
       margin-right: 0.5em;
-      color: global.$text-main;
+      color: global.$text-link;
 
       &::before {
         content: '#';
@@ -80,6 +80,10 @@ $content-heading-line-height: 1.25;
     margin-left: 2em;
     list-style-position: outside;
     list-style-type: decimal;
+  }
+
+  a {
+    color: global.$text-link;
   }
 }
 
