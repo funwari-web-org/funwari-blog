@@ -65,6 +65,7 @@ const config: NuxtConfig = {
       prism: {
         theme: 'prism-themes/themes/prism-one-dark.css',
       },
+      remarkPlugins: ['remark-footnotes'],
     },
   },
   storybook: {},
