@@ -4,9 +4,9 @@
       <AppHeader />
     </div>
     <main class="l-main">
-      <main class="container">
+      <div class="container">
         <Nuxt />
-      </main>
+      </div>
     </main>
     <div class="l-footer">
       <AppFooter />
