@@ -1,7 +1,15 @@
 <template>
   <div class="doc">
     <div class="doc__content">
-      <AppDocArticle class="doc__article" :document="document" />
+      <AppDocArticle
+        class="doc__article"
+        :document="document"
+      />
+      <AppDocRelation
+        class="doc__relation"
+        :prevDocument="prevDocument"
+        :nextDocument="nextDocument"
+      />
     </div>
     <aside class="doc__side">
       <AppDocToc class="doc__toc" :toc="document.toc" />
@@ -40,6 +48,10 @@ export default defineComponent({
 
   &__content {
     width: 70%;
+  }
+
+  &__relation {
+    margin-top: 80px;
   }
 
   &__side {
