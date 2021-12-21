@@ -85,6 +85,12 @@ $content-heading-line-height: 1.25;
   a {
     color: global.$text-link;
   }
+
+  ul {
+    margin-left: 2em;
+    list-style-position: outside;
+    list-style-type: disc;
+  }
 }
 
 .nuxt-content-highlight {
