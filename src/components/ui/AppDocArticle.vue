@@ -45,9 +45,9 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(prop) {
+  setup(props) {
     const publishedAtDisplay = computed(
-      () => dayjs(prop.document.publishedAt).format('YYYY年MM月DD日')
+      () => dayjs(props.document.publishedAt).format('YYYY年MM月DD日')
     )
 
     return {
