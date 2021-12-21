@@ -1,8 +1,8 @@
 <template>
   <article class="docArticle">
     <header class="docArticle__header docArticleHeader">
-      <figure class="docArticleHeader__thumbnail">
-        <img v-if="document.thumbnail" :src="document.thumbnail" alt="" width="1280" height="720" />
+      <figure v-if="document.thumbnail" class="docArticleHeader__thumbnail">
+        <img :src="document.thumbnail" alt="" width="1280" height="720" />
       </figure>
       <div class="docArticleHeader__info">
         <h1 class="docArticleHeader__title" v-text="document.title" />
@@ -74,8 +74,12 @@ export default defineComponent({
   }
 
   &__info {
-    padding: 25px 0;
+    padding-bottom: 25px;
     border-bottom: 1px solid global.$border;
+
+    &:not(:first-child) {
+      margin-top: 25px;
+    }
   }
 
   &__title {
