@@ -25,7 +25,9 @@ export default defineComponent({
     }
   },
   async asyncData({ $content }) {
-    const documents = await $content('/articles').fetch() as FetchReturn[]
+    const documents = await $content('/articles')
+      .sortBy('publishedAt', 'desc')
+      .fetch() as FetchReturn[]
 
     return {
       documents,
