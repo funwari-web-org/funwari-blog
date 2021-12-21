@@ -34,7 +34,7 @@ export default defineComponent({
       return
     }
 
-    const [prevDocument, nextDocument] = await $content('articles')
+    const [nextDocument, prevDocument] = await $content('articles')
       .only(['title', 'publishedAt', 'thumbnail', 'path'])
       .sortBy('publishedAt', 'desc')
       .surround(document.slug)
