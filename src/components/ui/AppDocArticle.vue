@@ -5,27 +5,11 @@
         <img :src="document.thumbnail" alt="" width="1280" height="720" />
       </figure>
       <div class="docArticleHeader__info">
-        <h1 class="docArticleHeader__title" v-text="document.title" />
         <div class="docArticleHeader__publishedAt">
           <Icon icon="calendar" /><time :datetime="document.publishedAt" v-text="publishedAtDisplay" />
         </div>
-        <div class="docArticleHeader__tags docArticleTags">
-          <span class="docArticleTags__bracket">[</span>
-          <ul class="docArticleTags__list">
-            <li
-              v-for="tag in document.tag"
-              :key="tag"
-              class="docArticleTags__item"
-            >
-              <NuxtLink
-                class="docArticleTags__link"
-                :to="{ name: 'tags-tag', params: { tag } }"
-                v-text="`# ${tag}`"
-              />
-            </li>
-          </ul>
-          <span class="docArticleTags__bracket">]</span>
-        </div>
+        <h1 class="docArticleHeader__title" v-text="document.title" />
+        <AppDocArticleTags class="docArticleHeader__tags" :tags="document.tags" />
       </div>
     </header>
     <AppDocArticleContent class="docArticle__content" :document="document" />
@@ -82,18 +66,9 @@ export default defineComponent({
     }
   }
 
-  &__title {
-    @include global.leading-trim(1.3);
-    color: global.$text-strong;
-    font-size: global.$size-4;
-    font-weight: global.$weight-bold;
-    line-height: 1.3;
-  }
-
   &__publishedAt {
     @include global.leading-trim;
     color: rgba(global.$text-strong, 0.8);
-    margin-top: 8px;
     font-size: global.$size-7;
 
     .icon {
@@ -101,27 +76,18 @@ export default defineComponent({
     }
   }
 
+  &__title {
+    $line-height: 1.3;
+    @include global.leading-trim($line-height);
+    padding-top: 10px;
+    color: global.$text-strong;
+    font-size: global.$size-4;
+    font-weight: global.$weight-bold;
+    line-height: $line-height;
+  }
+
   &__tags {
-    margin-top: 10px;
-  }
-}
-
-.docArticleTags {
-  display: flex;
-  align-items: center;
-  color: global.$text-strong;
-  font-size: global.$size-7;
-
-  &__brackets {
-    @include global.leading-trim;
-  }
-
-  &__list {
-    display: flex
-  }
-
-  &__link {
-    @include global.leading-trim;
+    padding-top: 15px;
   }
 }
 </style>
