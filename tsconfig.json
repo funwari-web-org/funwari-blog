@@ -27,6 +27,7 @@
       "@nuxt/types",
       "@nuxt/content",
       "@nuxtjs/toast",
+      "@nuxt/image",
       "@types/node"
     ]
   },

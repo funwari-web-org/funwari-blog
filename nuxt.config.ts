@@ -50,7 +50,11 @@ const config: NuxtConfig = {
       pathPrefix: false,
     },
   ],
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/composition-api/module'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/composition-api/module',
+    '@nuxt/image',
+  ],
   modules: ['@nuxt/content', 'nuxt-fontawesome', '@nuxtjs/toast'],
   fontawesome: {
     imports: [
@@ -68,8 +72,7 @@ const config: NuxtConfig = {
       remarkPlugins: ['remark-footnotes'],
     },
   },
-  storybook: {},
-  postcss: {},
+  image: {},
   build: {},
   toast: {
     position: 'bottom-right',

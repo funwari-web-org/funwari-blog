@@ -2,7 +2,7 @@
   <article class="docArticle">
     <header class="docArticle__header docArticleHeader">
       <figure v-if="document.thumbnail" class="docArticleHeader__thumbnail">
-        <img :src="document.thumbnail" alt="" width="1280" height="720" />
+        <NuxtImg format="webp" :src="document.thumbnail" alt="" width="1280" height="720" />
       </figure>
       <div class="docArticleHeader__info">
         <div class="docArticleHeader__publishedAt">
